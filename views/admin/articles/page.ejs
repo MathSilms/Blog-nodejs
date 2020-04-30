@@ -1,0 +1,34 @@
+<%- include('../../partials/homeNavbar.ejs'); %>
+    <section>
+        <div class="container">
+            <hr>
+            <% ress.art.rows.forEach(art =>{ %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><%= art.title  %> </h2>
+                    </div>
+                    <div class="card-body">
+                        <a href="/<%= art.slug %>" class="btn btn-success">Ler Artigo</a>
+                    </div>
+                </div>
+                <br>
+            <% }); %> 
+            <div class="row">
+                <div class="col col-12">
+                    <% if(ress.next) {%>
+                        <% console.log(ress.page) %> 
+                        <a class="btn btn-warning" href="/articles/page/<%= ress.page +1 %> " style="float:right" >Next >></a>
+                    <% };%>  
+    
+                    <% if(ress.page >= 2) {%>
+                        <a class="btn btn-warning"style="float:left" href="/articles/page/<%= ress.page - 1 %>" > << prev </a>
+                   <% };%>
+                   <hr>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <hr>
+    </section>
+<%- include('../../partials/footer.ejs'); %>
+

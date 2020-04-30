@@ -1,0 +1,42 @@
+<%- include('../../partials/header.ejs'); %>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+      selector: '#article',
+    });
+</script>
+<section>
+    <div class="container">
+        <div class="card"></div>
+            <div class="card-header">
+                <hr>
+                <center><h2>Edição de Artigo</h2></center>
+            </div>
+            <div class="card-body">
+                <form action="/articles/update" method="POST">
+                    <label for="title"><b>Título</b></label>
+                    <input class="form-control" type="text" name="title" value="<%=art.title %> ">
+                    <br>
+                    <label for="body"><b> Artigo:</b></label>
+                    <textarea class="form-control" name="body" id="article"><%- art.body %></textarea>
+                    <br>
+                    <label for="category"><b>Categoria</b></label>
+                    <select class="form-control" name="category">
+                        <% cat.forEach((cat)=>{%>
+                            <% if(cat.id == art.categoryId){ %> 
+                                <option value="<%= cat.id %>" selected><%= cat.title %></option>
+
+                            <% }else{ %> 
+                                <option value="<%= cat.id %>" ><%= cat.title %></option>
+                            <% };%> 
+                        <% }); %>  
+                    </select>
+                    <input type="hidden" name="id" value="<%= art.id %> ">
+                    <br>
+                    <button type="submit" class="btn btn-success"> Atualizar </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include('../../partials/footer.ejs'); %>

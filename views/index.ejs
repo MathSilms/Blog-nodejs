@@ -1,0 +1,35 @@
+<%- include('partials/homeNavbar.ejs'); %>
+    <section>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-4">Bem vindo</h1>
+                <p class="lead">Esse é um simples blog</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+              </div>
+            <hr>
+            <% art.forEach(art =>{ %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><%= art.title  %> </h2>
+                    </div>
+                    <div class="card-body">
+                        <a href="/<%= art.slug %>" class="btn btn-success">Ler Artigo</a>
+                    </div>
+                </div>
+                <br>
+            <% }); %>
+            <div class="row">
+                <div class="col col-12">
+                    <a href="" style="float:right" >Next >></a>
+                </div>
+                <hr>
+            </div>
+            <hr>
+        </div>
+    </section>
+<%- include('partials/footer.ejs'); %>
+

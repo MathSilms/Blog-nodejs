@@ -1,0 +1,25 @@
+<%- include('../../partials/header.ejs'); %>
+<section>
+    <div class="container">
+        <hr>
+        <center><h2>Usuários</h2></center>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>         
+                <% users.forEach(users => { %> 
+                    <tr>
+                        <td><%= users.id  %> </td>
+                        <td><%= users.email  %> </td>
+                    </tr>
+                <% }); %> 
+            </tbody>
+        </table>
+    </div>
+</section>
+<%- include('../../partials/footer.ejs'); %>
